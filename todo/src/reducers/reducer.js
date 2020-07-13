@@ -29,6 +29,8 @@ export const reducer = (state, action) => {
                     return item;
                 }
             })
+        case "FILTER_COMPLETE":
+            return state.filter(item => !item.completed);
         default:
             return state;
     }

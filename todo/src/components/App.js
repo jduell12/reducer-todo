@@ -16,9 +16,14 @@ function App() {
     dispatch({type: 'COMPLETE_TASK', payload: id})
   }
 
+  const filterComplete = () => {
+    dispatch({type: 'FILTER_COMPLETE'})
+  }
+
   return (
    <div className="App">
      <h1>Reducer To Do List:</h1>
+     <button onClick={filterComplete}>Clear Completed Tasks</button>
      <ToDoList 
         list={state} 
         completeTask={completeTask}
