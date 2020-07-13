@@ -1,13 +1,13 @@
 import React from 'react';
 
 const ToDoForm = (props) => {
-    const {input, handleChange, dispatch, list} = props;
+    const {input, handleChange, dispatch, changeTask} = props;
     return(
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 dispatch({type: 'ADD_NEW_TASK', payload: input})
-                props.changeTask('')
+                changeTask('')
                 }}>
                 <input 
                     type="text"
