@@ -1,12 +1,13 @@
 import React from 'react';
 
 const ToDo = props => {
-    const {dispatch} = props;
+    const {id, task, completed, checkOffTask} = props;
     return(
         <li
-           onClick={() => dispatch({type: "COMPLETE_TASK"})}
+            className={`task${completed}`}
+            onClick={() => checkOffTask(id)}
         >
-            {props.task} 
+            {task} 
         </li>
     )
 }

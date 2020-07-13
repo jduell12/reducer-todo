@@ -12,12 +12,16 @@ function App() {
     changeTask(e.target.value);
   }
 
+  const completeTask = (id) => {
+    dispatch({type: 'COMPLETE_TASK', payload: id})
+  }
+
   return (
    <div className="App">
      <h1>Reducer To Do List:</h1>
      <ToDoList 
         list={state} 
-        dispatch={dispatch}   
+        completeTask={completeTask}
       />
       <ToDoForm 
           input={newTask}

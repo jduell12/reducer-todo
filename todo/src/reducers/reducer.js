@@ -19,10 +19,16 @@ export const reducer = (state, action) => {
                 }
             ]
         case "COMPLETE_TASK":
-            return{
-                ...state,
-                completed: true
-            }
+            return state.map(item => {
+                if(item.id === action.payload){
+                    return{
+                        ...item,
+                        completed: true
+                    }
+                } else {
+                    return item;
+                }
+            })
         default:
             return state;
     }
