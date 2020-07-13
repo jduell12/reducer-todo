@@ -6,24 +6,27 @@ import '../styles/App.css';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [toDoList, addItem] = useState([initialState]);
+  const [toDoList, addItem] = useState(initialState);
   const [newTask, changeTask] = useState("");
 
   const handleChange = e => {
     changeTask(e.target.value);
   }
-
+  
   return (
    <div className="App">
      <h1>Reducer To Do List:</h1>
      <ToDoList 
-        list={toDoList} 
+        list={state} 
         dispatch={dispatch}   
-        taskState={state}
       />
       <ToDoForm 
           input={newTask}
           handleChange={handleChange}
+          dispatch={dispatch}
+          list={toDoList}
+          addItem={addItem}
+          changeTask={changeTask}
       />
    </div>
   );
