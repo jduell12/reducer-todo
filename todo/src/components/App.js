@@ -1,16 +1,30 @@
 import React, {useState, useReducer} from 'react';
 import ToDoList from './ToDoList';
-import {initialState, reducer} from '../reducers/reducer'
+import ToDoForm from './ToDoForm';
+import {initialState, reducer} from '../reducers/reducer';
 import '../styles/App.css';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [toDoList, addItem] = useState([initialState]);
+  const [newTask, changeTask] = useState("");
+
+  const handleChange = e => {
+    changeTask(e.target.value);
+  }
 
   return (
    <div className="App">
      <h1>Reducer To Do List:</h1>
-     <ToDoList list={toDoList} dispatch={dispatch} taskState={state}/>
+     <ToDoList 
+        list={toDoList} 
+        dispatch={dispatch}   
+        taskState={state}
+      />
+      <ToDoForm 
+          input={newTask}
+          handleChange={handleChange}
+      />
    </div>
   );
 }
