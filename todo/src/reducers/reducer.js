@@ -6,6 +6,11 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch(action.type){
+        case "COMPLETE_TASK":
+            return{
+                ...state,
+                completed: true
+            }
         default:
             return state;
     }
